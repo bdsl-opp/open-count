@@ -55,15 +55,22 @@
     <img src="image/p-graphic-1.webp" alt="Product">
   </div>
   <script>
-    const scrollImg = document.querySelector('.scroll-image');
-    function updateImage() {
-      const progress = Math.min(window.scrollY / (window.innerHeight * 2.5), 1);
-      const bottomVal = -100 + (progress * 120);
-      scrollImg.style.bottom = bottomVal + 'vh';
-      scrollImg.style.opacity = progress;
-    }
-    window.addEventListener('scroll', updateImage, { passive: true });
-    updateImage();
+    const scrollImg = document.querySelector('.scroll-image img');
+const images = [
+  'image/P-graphic-1.webp',
+  'image/P-graphic-2.webp'
+];
+scrollImg.src = images[Math.floor(Math.random() * images.length)];
+
+const scrollDiv = document.querySelector('.scroll-image');
+function updateImage() {
+  const progress = Math.min(window.scrollY / (window.innerHeight * 2.5), 1);
+  const bottomVal = -100 + (progress * 120);
+  scrollDiv.style.bottom = bottomVal + 'vh';
+  scrollDiv.style.opacity = progress;
+}
+window.addEventListener('scroll', updateImage, { passive: true });
+updateImage();
   </script>
 </body>
 </html>
