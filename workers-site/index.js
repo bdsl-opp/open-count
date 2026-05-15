@@ -6,9 +6,9 @@ export default {
       path = "/coming-soon.html";
     }
     try {
-      return await env.ASSETS.fetch(new URL(path, request.url));
+      return await env.ASSETS.fetch(new Request(new URL(path, request.url)));
     } catch (e) {
-      return new Response("Not Found", { status: 404 });
+      return new Response("Not Found: " + path, { status: 404 });
     }
   }
 };
