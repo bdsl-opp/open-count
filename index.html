@@ -65,7 +65,7 @@ scrollImg.src = images[Math.floor(Math.random() * images.length)];
 const scrollDiv = document.querySelector('.scroll-image');
 function updateImage() {
   const progress = Math.min(window.scrollY / (window.innerHeight * 2.5), 1);
-  const bottomVal = -90 + (progress * 150);
+  const bottomVal = -90 + (progress * 130);
   scrollDiv.style.bottom = bottomVal + 'vh';
   scrollDiv.style.opacity = progress;
 }
