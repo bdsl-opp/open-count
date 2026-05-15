@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corp's Number</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --text: #101010;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      height: 300vh;
+    }
+
+    .logo {
+      position: fixed;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(180px, 35vw, 410px);
+      pointer-events: none;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .scroll-image {
+      position: fixed;
+      z-index: 5;
+      bottom: -100vh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(200px, 40vw, 600px);
+      pointer-events: none;
+      transition: bottom 0s;
+    }
+
+    .scroll-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="image/cn%20logo.svg" alt="Corp's Number">
+  </div>
+
+  <div class="scroll-image">
+    <img src="image/placeholder-01.svg" alt="Product">
+  </div>
+
+  <script>
+    const scrollImg = document.querySelector('.scroll-image');
+
+    function updateImage() {
+      const progress = Math.min(window.scrollY / (window.innerHeight * 1.5), 1);
+      const bottomVal = -100 + (progress * 120);
+      scrollImg.style.bottom = bottomVal + 'vh';
+    }
+
+    window.addEventListener('scroll', updateImage, { passive: true });
+    updateImage();
+  </script>
+</body>
+</html>
