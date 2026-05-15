@@ -56,7 +56,7 @@
   <script>
     const scrollImg = document.querySelector('.scroll-image');
     function updateImage() {
-      const progress = Math.min(window.scrollY / (window.innerHeight * 1.5), 1);
+      const progress = Math.min(window.scrollY / (window.innerHeight * 2.5), 1);
       const bottomVal = -100 + (progress * 120);
       scrollImg.style.bottom = bottomVal + 'vh';
     }
