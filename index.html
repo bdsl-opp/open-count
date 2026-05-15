@@ -33,7 +33,7 @@
     .scroll-image {
       position: fixed;
       z-index: 5;
-      bottom: -120vh;
+      bottom: -115vh;
       left: 50%;
       transform: translateX(-50%);
       width: clamp(200px, 40vw, 600px);
@@ -65,7 +65,7 @@ scrollImg.src = images[Math.floor(Math.random() * images.length)];
 const scrollDiv = document.querySelector('.scroll-image');
 function updateImage() {
   const progress = Math.min(window.scrollY / (window.innerHeight * 2.5), 1);
-  const bottomVal = -90 + (progress * 120);
+  const bottomVal = -90 + (progress * 115);
   scrollDiv.style.bottom = bottomVal + 'vh';
   scrollDiv.style.opacity = progress;
 }
